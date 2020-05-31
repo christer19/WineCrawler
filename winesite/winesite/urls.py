@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('main/', include('main.urls')),
-    path('', include('login.urls')),
+    path('main', include('main.urls')),
+    path('', RedirectView.as_view(url='/login')), #directly redirect to login page TODO: see if already logged in
+    path('login', include('login.urls')),
     path('signup', include('createuser.urls')),
     path('admin/', admin.site.urls),
 ]
