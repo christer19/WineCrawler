@@ -8,4 +8,4 @@ class Wine(models.Model):
     price = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name + " - " + self.crawl_date
+        return self.name + " - " + self.crawl_date.__str__()
